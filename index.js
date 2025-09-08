@@ -34,7 +34,11 @@ function enableButtons() {
 // Initialize with dull buttons
 disableButtons();
 
-document.addEventListener("keydown",function(){
+// Start game on keydown or touch
+document.addEventListener("keydown", startGame);
+document.addEventListener("touchstart", startGame);
+
+function startGame() {
     if(started==false){
         console.log("Game started");
         started=true;
@@ -51,20 +55,20 @@ document.addEventListener("keydown",function(){
             levelup();
         }, 800); // 800ms delay
     }
-});
+}
 
 function gameFlash(btn){
     btn.classList.add("flash");
     setTimeout(function(){
         btn.classList.remove("flash");
-    }, 250);
+    }, 300); // 0.3 second
 }
 
 function userFlash(btn){
     btn.classList.add("userFlash");
     setTimeout(function(){
         btn.classList.remove("userFlash");
-    }, 250);
+    }, 180); // 0.18 second
 }
 
 function levelup(){
@@ -125,7 +129,13 @@ function btnPress() {
 }
 
 for (let btn of allBtns){
-    btn.addEventListener("click",btnPress);
+    btn.addEventListener("click", btnPress);
+    // Add touch support for mobile devices
+    btn.addEventListener("touchstart", function(e) {
+        // Prevent simulated mouse events after touch
+        e.preventDefault();
+        btnPress.call(this, e);
+    }, { passive: false });
 }
 
 function reset() {

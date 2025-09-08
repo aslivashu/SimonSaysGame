@@ -10,29 +10,37 @@ initial-scale=1.0" />
 <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-   <h1>Simon Says Game</h1>
-   <h2>Press any key to start the Game</h2>
+   <h1 class="game-title">
+      <span class="title-word">Simon</span> 
+      <span class="title-word">Says</span> 
+      <span class="title-word">Game</span>
+   </h1>
+   <h2>Press any key or tap anywhere to start the Game</h2>
     
    <div class="btn-container">
       <div class="line-one">
-        <div class="btn green" type="button" id="green">1</div> 
-        <div class="btn red" type="button" id="red">2</div>
+        <div class="btn green" type="button" id="green"></div> 
+        <div class="btn red" type="button" id="red"></div>
       </div>  
       <div class="line-two">
-         <div class="btn yellow" type="button" id="yellow">3</div>
-         <div class="btn blue" type="button" id="blue">4</div>
+         <div class="btn yellow" type="button" id="yellow"></div>
+         <div class="btn blue" type="button" id="blue"></div>
       </div>   
     </div>
     
-    <div> <h5>highest score: <span id="highscore">0</span></h5></div>
+    <!-- High Score Display - Below Game Buttons -->
+    <div class="score-display">
+        <span class="score-label">🏆 High Score:</span>
+        <span id="highscore" class="score-value">0</span>
+    </div>
     
     <!-- Footer -->
     <footer class="footer">
-        <h4>Developer Contact</h4>
+       
         <div class="social-links">
-            <a href="https://www.linkedin.com/in/sarthaktyagi2236999 " target="_blank">LinkedIn</a>
-            <a href="https://www.instagram.com/sarthak2236999/" target="_blank">Instagram</a>
-            <a href="https://github.com/aslivashu" target="_blank">GitHub</a>
+              <a href="https://www.linkedin.com/in/sarthaktyagi2236999" target="_blank" class="linkedin">LinkedIn</a>
+              <a href="https://www.instagram.com/sarthak2236999/" target="_blank" class="instagram">Instagram</a>
+              <a href="https://github.com/aslivashu" target="_blank" class="github">GitHub</a>
         </div>
     </footer>
 
