@@ -1,3 +1,18 @@
+// Force light mode - prevent any automatic dark mode
+document.addEventListener('DOMContentLoaded', function() {
+    // Set color scheme meta tag if not already set
+    if (!document.querySelector('meta[name="color-scheme"]')) {
+        const meta = document.createElement('meta');
+        meta.name = 'color-scheme';
+        meta.content = 'light only';
+        document.head.appendChild(meta);
+    }
+    
+    // Force light mode styling
+    document.documentElement.style.colorScheme = 'light only';
+    document.body.style.colorScheme = 'light';
+});
+
 let gameSeq=[];
 let userSeq=[];
 
