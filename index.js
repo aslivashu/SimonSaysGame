@@ -1,7 +1,7 @@
 let gameSeq=[];
 let userSeq=[];
 
-let btnColors=["green","yellow","red","blue"];
+let btnColors=["green","red","yellow","blue"]; // Fixed to match HTML layout order
 
 let started=false;
 let level=0;
@@ -36,13 +36,21 @@ disableButtons();
 
 // Start game on keydown or touch
 document.addEventListener("keydown", startGame);
-document.addEventListener("touchstart", startGame);
+document.addEventListener("touchstart", function(e) {
+    // Only start game if touch is not on a button
+    if (!e.target.classList.contains('btn')) {
+        startGame();
+    }
+});
 
 function startGame() {
     if(started==false){
         console.log("Game started");
         started=true;
         gameOver = false;
+        
+        // Update UI text
+        h2.innerText = "Watch the sequence...";
         
         // Immediately change opacity with transition
         enableButtons();
@@ -86,10 +94,23 @@ function levelup(){
 }
 
 function flashSequence() {
+    // Disable buttons during sequence display
+    disableButtons();
+    
     gameSeq.forEach((color, idx) => {
         setTimeout(() => {
             let btn = document.querySelector(`.${color}`);
-            gameFlash(btn);
+            if (btn) {
+                gameFlash(btn);
+            }
+            
+            // Re-enable buttons after last flash
+            if (idx === gameSeq.length - 1) {
+                setTimeout(() => {
+                    enableButtons();
+                    h2.innerText = `Level ${level} - Your turn!`;
+                }, 400);
+            }
         }, (idx + 1) * 600);
     });
 }
@@ -120,6 +141,13 @@ function btnPress() {
     }
     
     let btn = this;
+    
+    // Ensure button exists and has ID
+    if (!btn || !btn.getAttribute("id")) {
+        console.error("Invalid button pressed");
+        return;
+    }
+    
     userFlash(btn);
 
     let userColor = btn.getAttribute("id");
@@ -129,16 +157,26 @@ function btnPress() {
 }
 
 for (let btn of allBtns){
-    // Primary click event for desktop
-    btn.addEventListener("click", btnPress);
+    let touchHandled = false;
     
     // Enhanced touch support for mobile devices
     btn.addEventListener("touchstart", function(e) {
+        touchHandled = true;
         // Prevent scrolling and other touch behaviors
         e.preventDefault();
         e.stopPropagation();
         btnPress.call(this, e);
+        
+        // Reset flag after a short delay
+        setTimeout(() => { touchHandled = false; }, 300);
     }, { passive: false });
+    
+    // Primary click event for desktop (prevent if touch was handled)
+    btn.addEventListener("click", function(e) {
+        if (!touchHandled) {
+            btnPress.call(this, e);
+        }
+    });
     
     // Additional touch end for better mobile response
     btn.addEventListener("touchend", function(e) {
