@@ -22,5 +22,6 @@ A web-based memory game that challenges pattern recall through progressively lon
 ## Getting started
 - Clone the repository, open index.html in any modern browser, and play—no additional setup or build step required for the static deployment pattern used by web games.
 
-<img width="892" height="871" alt="Screenshot 2025-09-08 063336" src="https://github.com/user-attachments/assets/7d442c25-6cab-4a1e-840f-7981caeff134" />
+<img width="951" height="838" alt="Screenshot 2025-09-08 072417" src="https://github.com/user-attachments/assets/a7c174ac-32bf-4747-8f05-9f826dafb674" />
+
 
