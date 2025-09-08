@@ -172,7 +172,8 @@ body{
     pointer-events: none;
 }
 
-.btn:hover {
+.btn:hover,
+.btn.touch-hover {
     transform: translateY(-5px) scale(1.05);
     box-shadow: 
         0 30px 60px rgba(0, 0, 0, 0.4),
@@ -180,7 +181,8 @@ body{
         inset 0 -2px 0 rgba(0, 0, 0, 0.4);
 }
 
-.btn:active {
+.btn:active,
+.btn.touch-active {
     transform: translateY(-2px) scale(0.98);
     box-shadow: 
         0 15px 30px rgba(0, 0, 0, 0.3),
@@ -274,6 +276,10 @@ body{
         0 0 100px rgba(255, 255, 255, 0.6),
         0 30px 60px rgba(0, 0, 0, 0.3) !important;
     animation: flashPulse 0.3s ease-in-out;
+    /* Override disabled state completely */
+    opacity: 1 !important;
+    filter: none !important;
+    pointer-events: auto !important;
 }
 
 @keyframes flashPulse {
@@ -302,10 +308,23 @@ body{
 .userFlash {
     background-color: white !important;
     transition: all 0.2s;
+    transform: scale(1.05) !important;
+    box-shadow: 
+        0 0 30px rgba(255, 255, 255, 0.9),
+        0 25px 50px rgba(0, 0, 0, 0.4) !important;
 }
 
-/* Button ripple effect on press */
-.btn:active::after {
+/* Enhanced button ripple effect for mobile */
+.btn.ripple::after {
+    width: 300px;
+    height: 300px;
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn:active::after,
+.btn.touch-active::after {
     width: 200px;
     height: 200px;
     opacity: 0;
@@ -314,7 +333,8 @@ body{
 
 .btn.disabled {
     opacity: 0.4;
-    pointer-events: none;
+    /* Keep pointer events enabled for touch to work */
+    pointer-events: auto;
     filter: grayscale(70%) brightness(0.7);
     transform: scale(0.95);
     transition: all 0.3s ease;

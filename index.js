@@ -148,6 +148,11 @@ function btnPress() {
         return;
     }
     
+    // Check if button is disabled (during sequence display)
+    if (btn.classList.contains("disabled")) {
+        return;
+    }
+    
     userFlash(btn);
 
     let userColor = btn.getAttribute("id");
