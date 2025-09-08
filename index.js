@@ -129,12 +129,20 @@ function btnPress() {
 }
 
 for (let btn of allBtns){
+    // Primary click event for desktop
     btn.addEventListener("click", btnPress);
-    // Add touch support for mobile devices
+    
+    // Enhanced touch support for mobile devices
     btn.addEventListener("touchstart", function(e) {
-        // Prevent simulated mouse events after touch
+        // Prevent scrolling and other touch behaviors
         e.preventDefault();
+        e.stopPropagation();
         btnPress.call(this, e);
+    }, { passive: false });
+    
+    // Additional touch end for better mobile response
+    btn.addEventListener("touchend", function(e) {
+        e.preventDefault();
     }, { passive: false });
 }
 

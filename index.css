@@ -1,3 +1,13 @@
+/* Mobile touch optimizations */
+* {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 body{
     text-align: center;
     margin: 0;
@@ -8,6 +18,9 @@ body{
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
+    /* Prevent iOS bounce scrolling */
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Interactive Game Title */
@@ -80,6 +93,21 @@ body{
     }
 }
 
+/* Mobile hint styling */
+.mobile-hint {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 10px 0;
+    font-style: italic;
+}
+
+/* Hide mobile hint on desktop */
+@media (min-width: 768px) {
+    .mobile-hint {
+        display: none;
+    }
+}
+
 @keyframes bounce {
     0%, 20%, 50%, 80%, 100% {
         transform: translateY(0) scale(1);
@@ -112,6 +140,10 @@ body{
         inset 0 2px 0 rgba(255, 255, 255, 0.3),
         inset 0 -2px 0 rgba(0, 0, 0, 0.3);
     overflow: hidden;
+    /* Enhanced mobile touch */
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    will-change: transform, box-shadow;
 }
 
 .btn::before {
@@ -458,21 +490,24 @@ body{
     }
     
     .btn {
-        height: 120px;
-        width: 120px;
+        height: 140px;
+        width: 140px;
         border: 0;
-        margin: 4px;
-        font-size: 18px;
+        margin: 6px;
+        font-size: 20px;
         box-shadow: 
             0 15px 30px rgba(0, 0, 0, 0.25),
             inset 0 2px 0 rgba(255, 255, 255, 0.25),
             inset 0 -2px 0 rgba(0, 0, 0, 0.25);
+        /* Better mobile touch response */
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
     }
     
-    .btn:hover {
-        transform: translateY(-3px) scale(1.03);
+    .btn:hover, .btn:active {
+        transform: translateY(-2px) scale(1.02);
         box-shadow: 
-            0 20px 40px rgba(0, 0, 0, 0.3),
+            0 18px 35px rgba(0, 0, 0, 0.3),
             inset 0 2px 0 rgba(255, 255, 255, 0.3),
             inset 0 -2px 0 rgba(0, 0, 0, 0.3);
     }
@@ -576,31 +611,9 @@ body{
     }
 }
 
-/* Dark mode: keep button colors unchanged */
+/* Dark mode: keep UI consistent */
 @media (prefers-color-scheme: dark) {
-    body {
-        background-color: #181818;
-        color: #f0f0f0;
-    }
-    
-    .footer {
-        background: linear-gradient(90deg, #3a3f73 0%, #6b70a8 100%);
-        margin: 0 -10px -20px -10px;
-        padding: 32px 20px 20px 20px;
-        width: calc(100% + 20px);
-    }
-    
-    /* Button colors stay the same in dark mode */
-    .btn.green {
-        background-color: greenyellow;
-    }
-    .btn.red {
-        background-color: red;
-    }
-    .btn.blue {
-        background-color: blue;
-    }
-    .btn.yellow {
-        background-color: yellow;
-    }
+    /* Remove dark mode overrides to keep our modern UI intact */
+    /* All button colors and styles remain the same as light mode */
+    /* This ensures consistent visual experience across all modes */
 }
