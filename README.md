@@ -14,6 +14,7 @@ A web-based memory game that challenges pattern recall through progressively lon
 - Responsive layout for mobile and desktop screens with touch and mouse input support in modern browsers (Chrome, Safari, Edge, Firefox, Opera) on major platforms.
 - Local storage persistence for the highest score to encourage replayability.
 - Simple interface and quick restart to enable short, iterative play sessions.
+- Dark mode support for comfortable play in low-light environments, automatically adapting to system preferences.
 
 ## Screenshots / Demo
 - Example game state with four colored pads, game status text, and highest score shown at the bottom for continuity across sessions.
@@ -21,4 +22,5 @@ A web-based memory game that challenges pattern recall through progressively lon
 ## Getting started
 - Clone the repository, open index.html in any modern browser, and play—no additional setup or build step required for the static deployment pattern used by web games.
 
-<img width="902" height="882" alt="Screenshot 2025-09-08 053952" src="https://github.com/user-attachments/assets/24c4e516-f73d-4eaf-8e60-9f5f226559a2" />
+<img width="892" height="871" alt="Screenshot 2025-09-08 063336" src="https://github.com/user-attachments/assets/7d442c25-6cab-4a1e-840f-7981caeff134" />
+
