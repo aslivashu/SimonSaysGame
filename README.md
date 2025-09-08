@@ -1,42 +1,24 @@
-# Simon Says Game  
 
-The **Simon Says Game** is a web-based memory challenge designed to test recall and focus. It provides a smooth and responsive experience across all devices including mobile phones, tablets, laptops, and desktops. The game is compatible with all major platforms such as **Windows, macOS, iOS, and Android**.  
+# Simon Says Game
 
-***
+A web-based memory game that challenges pattern recall through progressively longer color sequences, designed for responsive play across phones, tablets, laptops, and desktops on Windows, macOS, iOS, and Android.
 
-### How to Play
-- A sequence of colors will be displayed.  
-- Players must repeat the exact sequence by clicking or tapping on the colored buttons.  
-- With each round, the sequence increases in length.  
-- The game ends when an incorrect move is made.  
-- The **highest score** is automatically saved in the browser for future sessions.  
+## Live demo
+- Play now: https://aslivashu.github.io/SimonSaysGame/
 
-***
+## How to play
+- Watch the flashed color sequence and repeat it by clicking or tapping the pads in the same order; a new step is added each round until an error occurs, which ends the run.
+- The highest score is stored locally in the browser so it persists between sessions for repeat attempts.
 
-### Features
-- Fully responsive design for all screen sizes.  
-- Works across multiple platforms (Windows, Mac, iOS, Android).  
-- Clean and user-friendly interface.  
-- Local storage integration for saving the highest score.  
-- Sound effects to enhance gameplay.  
+## Features
+- Responsive layout for mobile and desktop screens with touch and mouse input support in modern browsers (Chrome, Safari, Edge, Firefox, Opera) on major platforms.
+- Local storage persistence for the highest score to encourage replayability.
+- Simple interface and quick restart to enable short, iterative play sessions.
 
-***
+## Screenshots / Demo
+- Example game state with four colored pads, game status text, and highest score shown at the bottom for continuity across sessions.
 
-### Technology Stack
-- HTML5  
-- CSS3 (Responsive Design)  
-- JavaScript (Vanilla JS)  
-- Local Storage for score saving  
+## Getting started
+- Clone the repository, open index.html in any modern browser, and play—no additional setup or build step required for the static deployment pattern used by web games.
 
-***
-
-
-
-### Future Enhancements
-- Multiple difficulty levels (Easy, Medium, Hard).  
-- Online leaderboard for global score comparison.  
-- Additional visual effects and animations.  
-
-***
-
-Would you like me to also structure this README with a **"Demo / Screenshots" section** so it looks more detailed and professional for GitHub?
+<img width="902" height="882" alt="Screenshot 2025-09-08 053952" src="https://github.com/user-attachments/assets/24c4e516-f73d-4eaf-8e60-9f5f226559a2" />
